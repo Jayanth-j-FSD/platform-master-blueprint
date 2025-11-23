@@ -1,0 +1,22 @@
+               ┌──────────────────────────────┐
+               │        USER NODES            │
+               │  Every user is a vertex      │
+               └──────────────┬───────────────┘
+                              │
+                     Relationship Edges
+                              │
+               ┌──────────────┴──────────────┐
+               │   TRUST GRAPH DATABASE       │
+               │  (Neo4j / JanusGraph / PG)   │
+               └──────────────┬──────────────┘
+                              │
+                     Weight & Score Engine
+                              │
+        ┌─────────────────────┴──────────────────────┐
+        │                                            │
+┌───────▼────────┐                           ┌────────▼─────────┐
+│ SIGNAL PROCESSOR│                           │  SCORING WORKER  │
+│ - KYC status    │                           │ - Compute score  │
+│ - Device trust  │                           │ - Decay model    │
+│ - Behavior      │                           │ - ML signals     │
+└─────────────────┘                           └───────────────────┘
