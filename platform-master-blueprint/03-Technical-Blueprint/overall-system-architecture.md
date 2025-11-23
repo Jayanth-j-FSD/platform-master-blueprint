@@ -1,23 +1,7 @@
 <!-- This file gives an overview of the overall system architecture, major modules, and tech stack considerations. -->
 
-**identity + social + marketplace + collaboration + payments**
-All layers. All modules. All schemas.
-This is the **Master Blueprint** that goes into:
-
-`platform-master-blueprint/03-Technical-Blueprint/overall-system-architecture.md`
-and the individual layer files.
-
-This is LONG, heavy, and production-ready.
-
----
-
 # ✅ **FULL TECHNICAL BLUEPRINT WITH SCHEMAS**
 
-(Paste directly into: `03-Technical-Blueprint/overall-system-architecture.md`)
-
----
-
-````markdown
 # FULL TECHNICAL BLUEPRINT WITH SCHEMAS
 A complete architecture blueprint for a unified global platform consisting of:
 - Identity Layer
@@ -98,7 +82,7 @@ Identity = **Users + Devices + Verification + Trust Graph**
 
 # 2.2 Identity Schema (RELATIONAL)
 
-```sql
+
 TABLE users (
   id UUID PRIMARY KEY,
   full_name TEXT,
@@ -113,11 +97,11 @@ TABLE users (
   updated_at TIMESTAMP,
   status VARCHAR(20) -- active, suspended, deleted
 );
-````
+
 
 ### User Devices
 
-```sql
+
 TABLE user_devices (
   id UUID PRIMARY KEY,
   user_id UUID REFERENCES users(id),
@@ -127,11 +111,11 @@ TABLE user_devices (
   last_active TIMESTAMP,
   trust_level INTEGER DEFAULT 1
 );
-```
+
 
 ### Verification
 
-```sql
+
 TABLE verifications (
   id UUID PRIMARY KEY,
   user_id UUID REFERENCES users(id),
@@ -140,7 +124,7 @@ TABLE verifications (
   verified_at TIMESTAMP,
   metadata JSONB
 );
-```
+
 
 ---
 
@@ -150,7 +134,7 @@ Stored in **Neo4j** or via adjacency tables in PostgreSQL.
 
 ### Trust Graph Table
 
-```sql
+
 TABLE trust_edges (
   id UUID PRIMARY KEY,
   from_user UUID REFERENCES users(id),
@@ -159,7 +143,7 @@ TABLE trust_edges (
   weight FLOAT,          -- trust score (0–1)
   created_at TIMESTAMP
 );
-```
+
 
 ---
 
@@ -198,7 +182,7 @@ Built on top of identity and trust graph.
 
 ## Posts
 
-```sql
+
 TABLE posts (
   id UUID PRIMARY KEY,
   user_id UUID REFERENCES users(id),
@@ -208,22 +192,22 @@ TABLE posts (
   created_at TIMESTAMP,
   updated_at TIMESTAMP
 );
-```
+
 
 ## Followers / Social Graph
 
-```sql
+
 TABLE follow_relations (
   id UUID PRIMARY KEY,
   follower_id UUID REFERENCES users(id),
   following_id UUID REFERENCES users(id),
   created_at TIMESTAMP
 );
-```
+
 
 ## Messages (MongoDB)
 
-```json
+
 {
   "conversationId": "UUID",
   "participants": ["user1", "user2"],
@@ -238,7 +222,7 @@ TABLE follow_relations (
     }
   ]
 }
-```
+
 
 ---
 
@@ -263,7 +247,7 @@ Marketplace for goods, services, rentals, digital assets.
 
 ### Listings
 
-```sql
+
 TABLE listings (
   id UUID PRIMARY KEY,
   seller_id UUID REFERENCES users(id),
@@ -276,11 +260,10 @@ TABLE listings (
   status VARCHAR(20), -- active, sold, removed
   created_at TIMESTAMP
 );
-```
+
 
 ### Orders
 
-```sql
 TABLE orders (
   id UUID PRIMARY KEY,
   buyer_id UUID REFERENCES users(id),
@@ -290,7 +273,7 @@ TABLE orders (
   status VARCHAR(20), -- pending, paid, shipped, delivered
   created_at TIMESTAMP
 );
-```
+
 
 ---
 
@@ -321,18 +304,18 @@ This layer supports:
 
 ### Workspaces
 
-```sql
+
 TABLE workspaces (
   id UUID PRIMARY KEY,
   name TEXT,
   owner_id UUID REFERENCES users(id),
   created_at TIMESTAMP
 );
-```
+
 
 ### Projects
 
-```sql
+
 TABLE projects (
   id UUID PRIMARY KEY,
   workspace_id UUID REFERENCES workspaces(id),
@@ -340,11 +323,11 @@ TABLE projects (
   description TEXT,
   created_at TIMESTAMP
 );
-```
+
 
 ### Tasks
 
-```sql
+
 TABLE tasks (
   id UUID PRIMARY KEY,
   project_id UUID REFERENCES projects(id),
@@ -354,7 +337,7 @@ TABLE tasks (
   status VARCHAR(20),
   created_at TIMESTAMP
 );
-```
+
 
 ---
 
@@ -377,7 +360,6 @@ TABLE tasks (
 
 ### Wallet
 
-```sql
 TABLE wallets (
   id UUID PRIMARY KEY,
   user_id UUID REFERENCES users(id),
@@ -385,11 +367,10 @@ TABLE wallets (
   currency VARCHAR(10),
   created_at TIMESTAMP
 );
-```
+
 
 ### Transactions
 
-```sql
 TABLE transactions (
   id UUID PRIMARY KEY,
   wallet_id UUID REFERENCES wallets(id),
@@ -399,11 +380,10 @@ TABLE transactions (
   reference_id UUID,
   created_at TIMESTAMP
 );
-```
+
 
 ### Escrow
 
-```sql
 TABLE escrows (
   id UUID PRIMARY KEY,
   buyer_id UUID REFERENCES users(id),
@@ -413,7 +393,7 @@ TABLE escrows (
   status VARCHAR(20),
   created_at TIMESTAMP
 );
-```
+
 
 ---
 
@@ -437,14 +417,13 @@ Events are published to **Kafka/NATS** for real-time distributed processing.
 
 The API Gateway exposes:
 
-```
+
 /identity
 /social
 /marketplace
 /collab
 /payments
 /admin
-```
 
 Supports:
 
@@ -492,7 +471,7 @@ The architecture supports:
 
 # FINAL SUMMARY
 
-This blueprint defines your entire platform architecture:
+This blueprint defines entire platform architecture:
 
 * Identity = root layer
 * Social = engagement layer
@@ -505,5 +484,3 @@ All interconnected through the **Identity + Trust Graph** engine.
 ---
 
 **END OF FULL TECHNICAL BLUEPRINT**
-
-```
