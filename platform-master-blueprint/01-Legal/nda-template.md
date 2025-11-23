@@ -1,0 +1,1 @@
+<!-- This file includes a Non-Disclosure Agreement template for legal use by your platform's team and partners. -->

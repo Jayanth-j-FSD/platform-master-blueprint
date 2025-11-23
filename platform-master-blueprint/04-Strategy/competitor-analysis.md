@@ -1,0 +1,1 @@
+<!-- This file offers a competitor analysis, including research, strengths, weaknesses, and market positioning. -->

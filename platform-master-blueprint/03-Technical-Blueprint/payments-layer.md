@@ -1,0 +1,1 @@
+<!-- This file provides the design and integration details of the payments layer in your platform. -->

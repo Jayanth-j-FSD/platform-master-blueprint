@@ -1,0 +1,1 @@
+<!-- This file details the API design and endpoints for the platform's identity layer. -->

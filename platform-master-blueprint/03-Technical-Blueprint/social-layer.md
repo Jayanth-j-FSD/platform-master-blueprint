@@ -1,0 +1,1 @@
+<!-- This file describes the technical blueprint for the platform's social layer, including major features and integration points. -->

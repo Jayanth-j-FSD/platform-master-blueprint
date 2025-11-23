@@ -1,0 +1,1 @@
+<!-- This file describes the intellectual property assignment procedures and relevant templates for your platform. -->

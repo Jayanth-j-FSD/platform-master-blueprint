@@ -1,0 +1,1 @@
+<!-- This file defines privacy policies and security rules for protecting user and platform data. -->

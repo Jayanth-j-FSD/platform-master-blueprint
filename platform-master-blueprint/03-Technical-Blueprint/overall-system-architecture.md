@@ -1,0 +1,1 @@
+<!-- This file gives an overview of the overall system architecture, major modules, and tech stack considerations. -->

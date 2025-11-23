@@ -1,0 +1,1 @@
+<!-- This file documents the data schema for the identity layer of your platform. -->

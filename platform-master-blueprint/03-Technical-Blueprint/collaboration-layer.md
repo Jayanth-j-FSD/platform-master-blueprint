@@ -1,0 +1,1 @@
+<!-- This file describes the collaboration layer, its features, and its role in the platform architecture. -->

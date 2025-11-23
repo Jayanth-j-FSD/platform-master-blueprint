@@ -1,0 +1,1 @@
+<!-- This file explains the architecture and design principles of the identity-layer trust graph. -->

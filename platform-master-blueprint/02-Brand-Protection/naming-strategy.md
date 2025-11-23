@@ -1,0 +1,1 @@
+<!-- This file describes the strategic approach for selecting and managing names for platform components and features. -->

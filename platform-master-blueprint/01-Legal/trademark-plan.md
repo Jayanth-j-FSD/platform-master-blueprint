@@ -1,0 +1,1 @@
+<!-- This file outlines the trademark strategy and protection plans for your brand and platform. -->

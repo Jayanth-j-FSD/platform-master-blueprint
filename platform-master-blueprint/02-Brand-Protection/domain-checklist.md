@@ -1,0 +1,1 @@
+<!-- This file provides a checklist for domain acquisition and management for your platform. -->
