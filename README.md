@@ -1,4 +1,3 @@
----
 # ✅ **README.md (Full Repository Summary – Production Quality)**
 
 # 🌍 Platform Master Blueprint  
@@ -16,8 +15,6 @@ This repository contains the complete master blueprint for building a **unified 
 
 This is the *source of truth* for founders, early engineers, and core contributors.
 
----
-
 # 📁 Repository Structure
 
 
@@ -31,8 +28,6 @@ platform-master-blueprint/
 └── README.md
 
 Each folder contains mission-critical documents mapping out every dimension of the platform.
-
----
 
 # 1️⃣ LEGAL FRAMEWORK — 01-Legal/
 
