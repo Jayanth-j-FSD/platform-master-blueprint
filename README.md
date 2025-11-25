@@ -1,4 +1,4 @@
-# 🌍 Platform Master Blueprint  
+# 🌍 Platform Master Blueprint  - UNITREAL
 ### Identity + Social + Marketplace + Collaboration + Payments  
 ### **Foundational Architecture, Legal Framework & Strategy Documents**
 
